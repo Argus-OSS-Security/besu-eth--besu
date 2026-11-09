@@ -1,8 +1,9 @@
 name: acceptance-tests
 
-on:
-  workflow_call:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_call:
+# 
 env:
   GRADLE_OPTS: "-Xmx1g"
   total-runners: 14

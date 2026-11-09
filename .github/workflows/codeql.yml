@@ -11,13 +11,14 @@
 #
 name: "CodeQL"
 
-on:
-  workflow_dispatch:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    # expression evaluates to midnight every night
-    - cron: '0 0 * * *'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   schedule:
+#     # * is a special character in YAML so you have to quote this string
+#     # expression evaluates to midnight every night
+#     - cron: '0 0 * * *'
+# 
 jobs:
   # Scheduled runs skip analysis when nothing compiled has changed since the
   # last successful scan, to avoid rescanning an unchanged tree.

@@ -1,15 +1,16 @@
 # SPDX-License-Identifier: Apache-2.0
 name: devnet-tests
 
-on:
-  workflow_call:
-    inputs:
-      evm_v2:
-        description: 'Run the devnet tests on EVM v2 (-Dtest.evm.v2=true), otherwise on EVM v1'
-        required: false
-        type: boolean
-        default: false
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_call:
+#     inputs:
+#       evm_v2:
+#         description: 'Run the devnet tests on EVM v2 (-Dtest.evm.v2=true), otherwise on EVM v1'
+#         required: false
+#         type: boolean
+#         default: false
+# 
 env:
   GRADLE_OPTS: "-Xmx6g -Dorg.gradle.parallel=true -Dorg.gradle.caching=true"
 

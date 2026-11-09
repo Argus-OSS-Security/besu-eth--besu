@@ -2,32 +2,33 @@ name: CI
 # manual runs are named after their checks, so that their results can be told apart
 run-name: ${{ github.event_name == 'workflow_dispatch' && format('CI ({0})', inputs.checks) || '' }}
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-      - release*
-      - performance
-      - '*-devnet-*'
-      - plugin-api-refactor
-      - 'rebase/**'
-  # manual runs on any branch
-  workflow_dispatch:
-    inputs:
-      checks:
-        description: 'fast: build and unit tests; full: every suite'
-        type: choice
-        options:
-          - full
-          - fast
-        default: full
-
-# Manual runs each validate a specific commit, so every one gets a group of its own and is never
-# cancelled. Pull requests and pushes to main keep the usual behaviour: only the latest commit is
-# relevant.
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+#       - release*
+#       - performance
+#       - '*-devnet-*'
+#       - plugin-api-refactor
+#       - 'rebase/**'
+#   # manual runs on any branch
+#   workflow_dispatch:
+#     inputs:
+#       checks:
+#         description: 'fast: build and unit tests; full: every suite'
+#         type: choice
+#         options:
+#           - full
+#           - fast
+#         default: full
+# 
+# # Manual runs each validate a specific commit, so every one gets a group of its own and is never
+# # cancelled. Pull requests and pushes to main keep the usual behaviour: only the latest commit is
+# # relevant.
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}${{ github.event_name == 'workflow_dispatch' && format('-{0}', github.run_id) || '' }}
   cancel-in-progress: true

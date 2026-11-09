@@ -1,16 +1,17 @@
 name: docker-security-scan-daily
 
-on:
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: 'Container image tag'
-        required: false
-        default: 'develop'      
-  schedule:
-    # Start of the hour is the busy time. Schedule it to run 8:17am UTC
-    - cron:  '17 8 * * *'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       tag:
+#         description: 'Container image tag'
+#         required: false
+#         default: 'develop'      
+#   schedule:
+#     # Start of the hour is the busy time. Schedule it to run 8:17am UTC
+#     - cron:  '17 8 * * *'
+# 
 jobs:
   scan-sarif:
     runs-on: ubuntu-latest

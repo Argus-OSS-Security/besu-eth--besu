@@ -1,9 +1,10 @@
 # SPDX-License-Identifier: Apache-2.0
 name: unit-tests
 
-on:
-  workflow_call:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_call:
+# 
 env:
   GRADLE_OPTS: "-Xmx6g -Dorg.gradle.parallel=true -Dorg.gradle.caching=true"
 

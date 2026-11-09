@@ -1,15 +1,16 @@
 name: docker-build-test
 
-on:
-  workflow_call:
-    inputs:
-      assemble_run_id:
-        required: false
-        type: string
-      version:
-        required: false
-        type: string
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_call:
+#     inputs:
+#       assemble_run_id:
+#         required: false
+#         type: string
+#       version:
+#         required: false
+#         type: string
+# 
 jobs:
   buildTestDocker:
     runs-on: ubuntu-24.04

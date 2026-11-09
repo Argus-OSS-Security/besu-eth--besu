@@ -16,11 +16,12 @@ name: acceptance-tests-timing-reports-update
 # from: the run then publishes nothing and succeeds, and the previous baseline stays in use, since
 # acceptance-tests.yml takes the newest successful run that has the artifact.
 
-on:
-  push:
-    branches:
-      - main
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - main
+# 
 concurrency:
   group: acceptance-timing-baseline
   cancel-in-progress: false

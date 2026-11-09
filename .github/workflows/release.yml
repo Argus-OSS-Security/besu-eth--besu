@@ -24,12 +24,13 @@ name: Release
 #   finalize-release  ← gh release edit --draft=false
 
 
-on:
-  push:
-    # match tags X.Y.Z and X.Y.Z-RCn
-    tags:
-      - '[0-9]*.[0-9]*.[0-9]*'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     # match tags X.Y.Z and X.Y.Z-RCn
+#     tags:
+#       - '[0-9]*.[0-9]*.[0-9]*'
+# 
 env:
   GRADLE_OPTS: "-Dorg.gradle.parallel=true -Dorg.gradle.caching=true"
 
